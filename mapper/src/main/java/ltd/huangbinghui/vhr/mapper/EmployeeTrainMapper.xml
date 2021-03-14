@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper>
+    <insert id="insertSelective" parameterType="ltd.huangbinghui.vhr.model.EmployeeTrain">
+        insert into EmployeeTrain
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="eid != null">eid,</if>
+            <if test="trainDate != null">trainDate,</if>
+            <if test="trainContent != null">trainContent,</if>
+            <if test="remark != null">remark,</if>
+        </trim>
+        <trim prefix=" values (" suffix=")" suffixOverrides=",">
+        <if test="id != null">#{id},</if>
+        <if test="eid != null">#{eid},</if>
+        <if test="trainDate != null">#{trainDate},</if>
+        <if test="trainContent != null">#{trainContent},</if>
+        <if test="remark != null">#{remark},</if>
+        </trim>
+    </insert>
+    <update id="updateByIdSelective" parameterType="ltd.huangbinghui.vhr.model.EmployeeTrain">
+        update EmployeeTrain
+        <set>
+            <if test="eid != null">eid = #{eid},</if>
+            <if test="trainDate != null">trainDate = #{trainDate},</if>
+            <if test="trainContent != null">trainContent = #{trainContent},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>

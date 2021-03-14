@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper>
+    <insert id="insertSelective" parameterType="ltd.huangbinghui.vhr.model.Employee">
+        insert into employee
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="name != null">name,</if>
+            <if test="gender != null">gender,</if>
+            <if test="birthday != null">birthday,</if>
+            <if test="idCard != null">idCard,</if>
+            <if test="wedLock != null">wedLock,</if>
+            <if test="nationId != null">nationId,</if>
+            <if test="nativePlace != null">nativePlace,</if>
+            <if test="politicId != null">politicId,</if>
+            <if test="email != null">email,</if>
+            <if test="phone != null">phone,</if>
+            <if test="address != null">address,</if>
+            <if test="departmentId != null">departmentId,</if>
+            <if test="jobLevelId != null">jobLevelId,</if>
+            <if test="posId != null">posId,</if>
+            <if test="engageForm != null">engageForm,</if>
+            <if test="titopDegree != null">titopDegree,</if>
+            <if test="specialty != null">specialty,</if>
+            <if test="school != null">school,</if>
+            <if test="beginDate != null">beginDate,</if>
+            <if test="workState != null">workState,</if>
+            <if test="workId != null">workId,</if>
+            <if test="contractTerm != null">contractTerm,</if>
+            <if test="conversionTime != null">conversionTime,</if>
+            <if test="notWorkDate != null">notWorkDate,</if>
+            <if test="beginContract != null">beginContract,</if>
+            <if test="endContract != null">endContract,</if>
+            <if test="workAge != null">workAge,</if>
+        </trim>
+        <trim prefix=" vlaues (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="name != null">#{name},</if>
+            <if test="gender != null">#{gender},</if>
+            <if test="birthday != null">#{birthday},</if>
+            <if test="idCard != null">#{idCard},</if>
+            <if test="wedLock != null">#{wedLock},</if>
+            <if test="nationId != null">#{nationId},</if>
+            <if test="nativePlace != null">#{nativePlace},</if>
+            <if test="politicId != null">#{politicId},</if>
+            <if test="email != null">#{email},</if>
+            <if test="phone != null">#{phone},</if>
+            <if test="address != null">#{address},</if>
+            <if test="departmentId != null">#{departmentId},</if>
+            <if test="jobLevelId != null">#{jobLevelId},</if>
+            <if test="posId != null">#{posId},</if>
+            <if test="engageForm != null">#{engageForm},</if>
+            <if test="titopDegree != null">#{titopDegree},</if>
+            <if test="specialty != null">#{specialty},</if>
+            <if test="school != null">#{school},</if>
+            <if test="beginDate != null">#{beginDate},</if>
+            <if test="workState != null">#{workState},</if>
+            <if test="workId != null">#{workId},</if>
+            <if test="contractTerm != null">#{contractTerm},</if>
+            <if test="conversionTime != null">#{conversionTime},</if>
+            <if test="notWorkDate != null">#{notWorkDate},</if>
+            <if test="beginContract != null">#{beginContract},</if>
+            <if test="endContract != null">#{endContract},</if>
+            <if test="workAge != null">#{workAge},</if>
+        </trim>
+    </insert>
+    <update id="updateByIdSelective" parameterType="ltd.huangbinghui.vhr.model.Employee">
+        update employee
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="gender != null">gender = #{gender},</if>
+            <if test="birthday != null">birthday = #{birthday},</if>
+            <if test="idCard != null">idCard = #{idCard},</if>
+            <if test="wedLock != null">wedLock = #{wedLock},</if>
+            <if test="nationId != null">nationId = #{nationId},</if>
+            <if test="nativePlace != null">nativePlace = #{nativePlace},</if>
+            <if test="politicId != null">politicId = #{politicId},</if>
+            <if test="email != null">email = #{email},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="address != null">address = #{address},</if>
+            <if test="departmentId != null">departmentId = #{departmentId},</if>
+            <if test="jobLevelId != null">jobLevelId = #{jobLevelId},</if>
+            <if test="posId != null">posId = #{posId},</if>
+            <if test="engageForm != null">engageForm = #{engageForm},</if>
+            <if test="titopDegree != null">titopDegree = #{titopDegree},</if>
+            <if test="specialty != null">specialty = #{specialty},</if>
+            <if test="school != null">school = #{school},</if>
+            <if test="beginDate != null">beginDate = #{beginDate},</if>
+            <if test="workState != null">workState = #{workState},</if>
+            <if test="workId != null">workId = #{workId},</if>
+            <if test="contractTerm != null">contractTerm = #{contractTerm},</if>
+            <if test="conversionTime != null">conversionTime = #{conversionTime},</if>
+            <if test="notWorkDate != null">notWorkDate = #{notWorkDate},</if>
+            <if test="beginContract != null">beginContract = #{beginContract},</if>
+            <if test="endContract != null">endContract = #{endContract},</if>
+            <if test="workAge != null">workAge = #{workAge},</if>
+        </set>
+            were id = #{id}
+    </update>
+</mapper>

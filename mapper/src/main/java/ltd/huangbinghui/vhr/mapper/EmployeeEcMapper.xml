@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper>
+    <insert id="insertSelective">
+        insert into employeeEc
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="eid != null">eid,</if>
+            <if test="ecDate != null">ecDate,</if>
+            <if test="ecReason != null">ecReason,</if>
+            <if test="ecPoint != null">ecPoint,</if>
+            <if test="ecType != null">ecType,</if>
+            <if test="remark != null">remark,</if>
+        </trim>
+        <trim prefix=" values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="eid != null">#{eid},</if>
+            <if test="ecDate != null">#{ecDate},</if>
+            <if test="ecReason != null">#{ecReason},</if>
+            <if test="ecPoint != null">#{ecPoint},</if>
+            <if test="ecType != null">#{ecType},</if>
+            <if test="remark != null">#{remark},</if>
+        </trim>
+    </insert>
+    <update id="updateByIdSelective">
+        update employeeEc
+        <set>
+            <if test="eid != null">eid = #{eid},</if>
+            <if test="ecDate != null">ecDate = #{ecDate},</if>
+            <if test="ecReason != null">ecReason = #{ecReason},</if>
+            <if test="ecPoint != null">ecPoint = #{ecPoint},</if>
+            <if test="ecType != null">ecType = #{ecType},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </set>
+            where id = #{id}
+    </update>
+</mapper>

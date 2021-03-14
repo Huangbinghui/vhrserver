@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper>
+    <resultMap id="BaseResultMap" type="ltd.huangbinghui.vhr.model.AdjustSalary">
+        <id column="id" property="id" jdbcType="INTEGER" ></id>
+        <result column="eid" property="eid" jdbcType="INTEGER"></result>
+        <result column="asdate" property="asDate" jdbcType="DATE"></result>
+        <result column="afterSalary" property="afterSalary" jdbcType="INTEGER"></result>
+        <result column="reason" property="reason" jdbcType="VARCHAR" ></result>
+        <result column="remark" property="remark" jdbcType="VARCHAR"></result>
+    </resultMap>
+
+    <sql id="BaseColumnList">
+        id,eid,asDate,beforeSalary,afterSalary,reason,remark
+    </sql>
+    
+    <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="BaseColumnList"></include>
+        from adjustSalary
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <insert id="insert" parameterType="ltd.huangbinghui.vhr.model.AdjustSalary">
+        insert into adjustSalary (id,eid,asDate,beforeSalary,afterSalary,reason,remark)
+        values (#{id},#{eid},#{asDate},#{beforeSalary},#{afterSalary},#{reason},#{remark})
+    </insert>
+
+    <insert id="insertSelective" parameterType="ltd.huangbinghui.vhr.model.AdjustSalary">
+        insert into adjustSalary
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="eid != null">
+                eid,
+            </if>
+            <if test="asDate != null">
+                asDate,
+            </if>
+            <if test="beforeSalary != null">
+                beforeSalary,
+            </if>
+            <if test="afterSalary != null">
+                afterSalary,
+            </if>
+            <if test="reason != null">
+                reason,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+        </trim>
+        <trim suffix="values (" prefix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="eid != null">
+                #{eid},
+            </if>
+            <if test="asDate != null">
+                #{asDate},
+            </if>
+            <if test="beforeSalary != null">
+                #{afterSalary},
+            </if>
+            <if test="reason != null">
+                #{reason},
+            </if>
+            <if test="remark != null">
+                #{remark},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from adjustSalary where id = #{id}
+    </delete>
+
+    <update id="updateById" parameterType="ltd.huangbinghui.vhr.model.AdjustSalary">
+        update adjustSalary
+        set eid=#{eid},
+        asDate=#{asDate},
+        beforeSalary=#{beforeSalary},
+        afterSalary=#{afterSalary},
+        reason=#{reason},
+        remark=#{remark}
+        where id = #{id}
+    </update>
+
+    <update id="updateByIdSelective" parameterType="ltd.huangbinghui.vhr.model.AdjustSalary">
+        update adjustSalary
+            <set>
+                <if test="eid != null">eid=#{eid},</if>
+                <if test="asDate != null">asDate=#{asDate},</if>
+                <if test="beforeSalary != null">beforeSalary=#{beforeSalary},</if>
+                <if test="afterSalary != null">afterSalary=#{afterSalary},</if>
+                <if test="reason != null">reason=#{reason},</if>
+                <if test="remark != null">remark=#{remark},</if>
+            </set>
+        where id = #{id}
+    </update>
+</mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper>
+    <insert id="insertSelective" parameterType="ltd.huangbinghui.vhr.model.EmployeeRemove">
+        insert into employeeRemove
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="eid != null">eid,</if>
+            <if test="afterDepId != null">afterDepId,</if>
+            <if test="afterJobId != null">afterJobId,</if>
+            <if test="removeDate != null">removeDate,</if>
+            <if test="reason != null">reason,</if>
+            <if test="remark != null">remark,</if>
+        </trim>
+        <trim prefix=" values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="eid != null">#{eid},</if>
+            <if test="afterDepId != null">#{afterDepId},</if>
+            <if test="afterJobId != null">#{afterJobId},</if>
+            <if test="removeDate != null">#{removeDate},</if>
+            <if test="reason != null">#{reason},</if>
+            <if test="remark != null">#{remark},</if>
+        </trim>
+    </insert>
+    <update id="updateByIdSelective" parameterType="ltd.huangbinghui.vhr.model.EmployeeRemove">
+        update employeeRemove
+        <set>
+            <if test="eid != null">eid = #{eid},</if>
+            <if test="ecDate != null">afterDepId = #{afterDepId},</if>
+            <if test="ecReason != null">afterJobId = #{afterJobId},</if>
+            <if test="ecPoint != null">removeDate = #{removeDate},</if>
+            <if test="ecType != null">reason = #{reason},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>
