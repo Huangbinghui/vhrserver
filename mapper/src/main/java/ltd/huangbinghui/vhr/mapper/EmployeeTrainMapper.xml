@@ -11,11 +11,11 @@
             <if test="remark != null">remark,</if>
         </trim>
         <trim prefix=" values (" suffix=")" suffixOverrides=",">
-        <if test="id != null">#{id},</if>
-        <if test="eid != null">#{eid},</if>
-        <if test="trainDate != null">#{trainDate},</if>
-        <if test="trainContent != null">#{trainContent},</if>
-        <if test="remark != null">#{remark},</if>
+            <if test="id != null">#{id},</if>
+            <if test="eid != null">#{eid},</if>
+            <if test="trainDate != null">#{trainDate},</if>
+            <if test="trainContent != null">#{trainContent},</if>
+            <if test="remark != null">#{remark},</if>
         </trim>
     </insert>
     <update id="updateByIdSelective" parameterType="ltd.huangbinghui.vhr.model.EmployeeTrain">

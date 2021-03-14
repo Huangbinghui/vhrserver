@@ -12,9 +12,9 @@ public interface EmpSalaryMapper {
     int insert(EmpSalary record);
 
     int insertSelective(EmpSalary record);
-    @Delete("")
+    @Delete("delete from EmpSalary where id = #{id}")
     int deleteById(Integer id);
-    @Update("")
+    @Update("update EmpSalary set eid = #{eid},sid=#{sid}")
     int updateById(EmpSalary record);
 
     int updateByIdSelective(EmpSalary record);

@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper>
-    <
+    <insert id="insertSelective" parameterType="ltd.huangbinghui.vhr.model.EmpSalary">
+        insert into empSalary
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="eid != null">eid,</if>
+            <if test="sid != null">sid,</if>
+        </trim>
+        <trim prefix=" values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="eid != null">#{eid},</if>
+            <if test="sid != null">#{sid},</if>
+        </trim>
+    </insert>
+    <update id="updateByIdSelective" parameterType="ltd.huangbinghui.vhr.model.EmpSalary">
+        update empSalary
+        <set>
+            <if test="eid != null">eid = #{eid},</if>
+            <if test="sid != null">sid = #{sid},</if>
+        </set>
+        where id = #{id}
+    </update>
 </mapper>
