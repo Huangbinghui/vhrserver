@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper>
-    <
+    <insert id="insertSelective" parameterType="ltd.huangbinghui.vhr.model.Menu">
+        insert into menu
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="url != null">url,</if>
+            <if test="path != null">path,</if>
+            <if test="component != null">component,</if>
+            <if test="name != null">name,</if>
+            <if test="iconCls != null">iconCls,</if>
+            <if test="keepAlive != null">keepAlive,</if>
+            <if test="requireAuth != null">requireAuth,</if>
+            <if test="parentId != null">parentId,</if>
+            <if test="enabled != null">enabled,</if>
+        </trim>
+        <trim prefix=" values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="url != null">#{url},</if>
+            <if test="path != null">#{path},</if>
+            <if test="name != null">#{name},</if>
+            <if test="iconCls != null">#{iconCls},</if>
+            <if test="keepAlive != null">#{keepAlive},</if>
+            <if test="requireAuth != null">#{requireAuth},</if>
+            <if test="parentId != null">#{parentId},</if>
+            <if test="enabled != null">#{enabled},</if>
+        </trim>
+    </insert>
+
+    <update id="updateByIdSelective" parameterType="ltd.huangbinghui.vhr.model.Menu">
+        update menu
+        <set>
+            <if test="url != null">url = #{url},</if>
+            <if test="path != null">path = #{path},</if>
+            <if test="component != null">component = #{component},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="iconCls != null">iconCls = #{iconCls},</if>
+            <if test="keepAlive != null">keepAlive = #{keepAlive},</if>
+            <if test="requireAuth != null">requireAuth = #{requireAuth},</if>
+            <if test="parentId != null">parentId = #{parentId},</if>
+            <if test="enabled != null">enabled = #{enabled},</if>
+        </set>
+        where id = #{id}
+    </update>
 </mapper>

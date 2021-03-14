@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper>
-    <
+    <insert id="insertSelective" parameterType="ltd.huangbinghui.vhr.model.MsgContent">
+        insert into MsgContent
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="title != null">title,</if>
+            <if test="message != null">message,</if>
+            <if test="createDate != null">createDate,</if>
+        </trim>
+        <trim prefix=" values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="title != null">#{title},</if>
+            <if test="message != null">#{message},</if>
+            <if test="createDate != null">#{createDate},</if>
+        </trim>
+    </insert>
+
+    <update id="updateByIdSelective" parameterType="ltd.huangbinghui.vhr.model.MsgContent">
+        update MsgContent
+        <set>
+            <if test="title != null">title = #{title},</if>
+            <if test="message != null">message = #{message},</if>
+            <if test="createDate != null">createDate = #{createDate},</if>
+        </set>
+        where id = #{id}
+    </update>
 </mapper>
