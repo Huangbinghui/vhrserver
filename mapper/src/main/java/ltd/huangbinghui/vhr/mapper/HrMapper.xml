@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper>
-    <
+    <insert id="insertSelective" parameterType="ltd.huangbinghui.vhr.model.Hr" >
+        insert into Hr
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="name != null">name,</if>
+            <if test="phone != null">phone,</if>
+            <if test="telephone != null">telephone,</if>
+            <if test="address != null">address,</if>
+            <if test="enable != null">enable,</if>
+            <if test="username != null">username,</if>
+            <if test="password != null">password,</if>
+            <if test="userface != null">userface,</if>
+            <if test="remark != null">remark,</if>
+        </trim>
+        <trim prefix=" values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="name != null">#{name},</if>
+            <if test="phone != null">#{phone},</if>
+            <if test="telephone != null">#{telephone},</if>
+            <if test="enable != null">#{enable},</if>
+            <if test="username != null">#{username},</if>
+            <if test="password != null">#{password},</if>
+            <if test="userface != null">#{userface},</if>
+            <if test="remark != null">#{remark},</if>
+        </trim>
+    </insert>
+    <update id="updateByIdSelective" parameterType="ltd.huangbinghui.vhr.model.Hr">
+        update Hr
+            <set>
+                <if test="name != null">name = #{name},</if>
+                <if test="phone != null">phone = #{phone},</if>
+                <if test="telephone != null">telephone = #{telephone},</if>
+                <if test="enable != null">enable = #{enable},</if>
+                <if test="username != null">username = #{username},</if>
+                <if test="password != null">password = #{password},</if>
+                <if test="userface != null">userface = #{userface},</if>
+                <if test="remark != null">remark = #{remark},</if>
+            </set>
+        where id = #{id}
+    </update>
 </mapper>
