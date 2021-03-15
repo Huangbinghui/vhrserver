@@ -21,4 +21,6 @@ public interface DepartmentMapper {
     int updateById(Department record);
 
     int updateByIdSelective(Department record);
+    @Select("select * from department where parentId is null")
+    List<Department> findAllWithNoParent();
 }

@@ -1,13 +1,13 @@
-package ltd.huangbinghui.vhr.service;
+package ltd.huangbinghui.vhr.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ServiceApplication {
+public class WebApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ServiceApplication.class, args);
+        SpringApplication.run(WebApplication.class, args);
     }
 
 }
