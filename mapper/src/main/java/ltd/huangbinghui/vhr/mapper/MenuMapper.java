@@ -3,8 +3,12 @@ package ltd.huangbinghui.vhr.mapper;
 import ltd.huangbinghui.vhr.model.Menu;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 @Mapper
 public interface MenuMapper {
+    @Select("select * from Menu")
+    List<Menu> findAll();
     @Select("select * from Menu where id =  #{id}")
     Menu findById(Integer id);
     @Insert("insert into Menu values(#{id},#{url},#{path},#{component},#{name},#{iconCls},#{keepAlive},#{requireAuth},#{parentId},#{enabled})")

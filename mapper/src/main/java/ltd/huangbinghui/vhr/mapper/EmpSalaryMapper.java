@@ -8,6 +8,8 @@ import org.apache.ibatis.annotations.*;
 public interface EmpSalaryMapper {
     @Select("select * from EmpSalary where id = #{id}")
     EmpSalary findById(Integer id);
+    @Select("select * from empSalary where eid = #{eid}")
+    EmpSalary findByEid(Integer eid);
     @Insert("insert into EmpSalary values(id,eid,sid)")
     int insert(EmpSalary record);
 

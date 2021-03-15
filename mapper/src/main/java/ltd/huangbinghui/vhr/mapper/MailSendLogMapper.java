@@ -3,10 +3,14 @@ package ltd.huangbinghui.vhr.mapper;
 import ltd.huangbinghui.vhr.model.MailSendLog;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 @Mapper
 public interface MailSendLogMapper {
     @Select("select * from MailSendLog where MsgId = #{MsgId}")
     MailSendLog findByMsgId(Integer MsgId);
+    @Select("select * from MailSendLog where empId = #{empId}")
+    List<MailSendLog> findByEmpId(Integer empId);
     @Insert("insert into MailSendLog values (#{msgId},#{empId},#{status},#{routeKey},#{exchange},#{count},#{tryTime},#{createTime},#{updateTime})")
     int insert(MailSendLog record);
 

@@ -3,8 +3,14 @@ package ltd.huangbinghui.vhr.mapper;
 import ltd.huangbinghui.vhr.model.Role;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 @Mapper
 public interface RoleMapper {
+    @Select("select * from role")
+    List<Role> findAll();
+    @Select("select * from role where name like '%' || #{name} || '%'")
+    List<Role> findByName(String name);
     @Select("select * from role where id = #{id}")
     Role findById(Integer id);
     @Insert("insert into role values (#{id},#{name},#{nameZh})")

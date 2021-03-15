@@ -7,6 +7,10 @@ import org.apache.ibatis.annotations.*;
 public interface MenuRoleMapper {
     @Select("select * from MenuRole where id = #{id}")
     MenuRole findById(Integer id);
+    @Select("select * from MenuRole where mid = #{mid}")
+    MenuRole findByMid(Integer mid);
+    @Select("select * from MenuRole where rid = #{rid}")
+    MenuRole findByRid(Integer rid);
     @Insert("insert into MenuRole values (#{id},#{mid},#{rid})")
     int insert(MenuRole record);
 
