@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper>
-    <
+    <insert id="insertSelective" parameterType="ltd.huangbinghui.vhr.model.SysMsg">
+        insert into sysMsg
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="mid != null">mid,</if>
+                <if test="type != null">type,</if>
+                <if test="hrid != null">hrid,</if>
+                <if test="state != null">state,</if>
+            </trim>
+            <trim prefix=" values(" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id},</if>
+                <if test="mid != null">#{mid},</if>
+                <if test="type != null">#{type},</if>
+                <if test="hrid != null">#{hrid},</if>
+                <if test="state != null">#{state},</if>
+            </trim>
+    </insert>
+    <update id="updateByIdSelective" parameterType="ltd.huangbinghui.vhr.model.SysMsg">
+        update sysMsg
+        <set>
+            <if test="mid != null">mid = #{mid},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="hrid != null">hrid = #{hrid},</if>
+            <if test="state != null">state = #{state},</if>
+        </set>
+            where id = #{id}
+    </update>
 </mapper>
