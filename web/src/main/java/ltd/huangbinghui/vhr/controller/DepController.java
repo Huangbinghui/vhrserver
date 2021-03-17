@@ -1,7 +1,7 @@
-package ltd.huangbinghui.vhr.web.controller;
+package ltd.huangbinghui.vhr.controller;
 
 import ltd.huangbinghui.vhr.model.Department;
-import ltd.huangbinghui.vhr.service.service.DepartmentService;
+import ltd.huangbinghui.vhr.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

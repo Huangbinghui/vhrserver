@@ -1,4 +1,4 @@
-package ltd.huangbinghui.vhr.service.service;
+package ltd.huangbinghui.vhr.service;
 
 import ltd.huangbinghui.vhr.mapper.DepartmentMapper;
 import ltd.huangbinghui.vhr.model.Department;

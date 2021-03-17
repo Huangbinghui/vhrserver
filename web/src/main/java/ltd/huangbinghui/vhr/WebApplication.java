@@ -1,4 +1,4 @@
-package ltd.huangbinghui.vhr.web;
+package ltd.huangbinghui.vhr;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
