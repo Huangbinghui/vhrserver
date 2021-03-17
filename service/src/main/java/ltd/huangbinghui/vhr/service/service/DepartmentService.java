@@ -9,8 +9,12 @@ import java.util.List;
 
 @Service
 public class DepartmentService {
+
+    private DepartmentMapper departmentMapper;
     @Autowired
-    DepartmentMapper departmentMapper;
+    public DepartmentService(DepartmentMapper depMapper){
+        this.departmentMapper=depMapper;
+    }
 
     public List<Department> getAllDep(){
         return departmentMapper.findAll();

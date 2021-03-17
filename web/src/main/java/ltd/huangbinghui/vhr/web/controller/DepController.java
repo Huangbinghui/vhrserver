@@ -1,15 +1,29 @@
 package ltd.huangbinghui.vhr.web.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import ltd.huangbinghui.vhr.model.Department;
+import ltd.huangbinghui.vhr.service.service.DepartmentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
-@ResponseBody
+import java.util.List;
+
+@RestController
 @RequestMapping("/dep")
 public class DepController {
 
-    @PostMapping
-    public
+    private DepartmentService depService;
+    @Autowired
+    public DepController(DepartmentService depService){
+        this.depService=depService;
+    }
+
+    @PostMapping("/")
+    public void appDep(@RequestParam Department dep){
+        depService.addDep(dep);
+    }
+
+    @GetMapping("/")
+    public List<Department> getAll(){
+        return depService.getAllDep();
+    }
 }
