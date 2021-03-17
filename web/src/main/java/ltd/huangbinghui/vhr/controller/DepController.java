@@ -18,7 +18,7 @@ public class DepController {
     }
 
     @PostMapping("/")
-    public void appDep(@RequestParam Department dep){
+    public void appDep(@RequestBody Department dep){
         depService.addDep(dep);
     }
 
